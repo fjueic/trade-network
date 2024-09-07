@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intergalactic Trade Network - Real-Time Updates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #events {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: scroll;
+        }
+
+        .event {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script> <!-- Socket.IO client -->
+</head>
+
+<body>
+    <h1>Real-Time Kafka Events</h1>
+    <div id="events">
+        <!-- Events will be added here dynamically -->
+    </div>
+
+    <script>
+        // Establish Socket.IO connection to the server (same URL as your API)
+        const socket = io('http://localhost:3000');
+
+        // Listen for 'kafka-event' messages from the server
+        socket.on('kafka-event', (message) => {
+            displayEvent(message);
+        });
+
+        // Function to display events on the page
+        function displayEvent(message) {
+            const eventsContainer = document.getElementById('events');
+            const eventElement = document.createElement('div');
+            eventElement.className = 'event';
+            eventElement.textContent = `Received Kafka Event: ${message}`;
+            eventsContainer.appendChild(eventElement);
+        }
+    </script>
+</body>
+
+</html>

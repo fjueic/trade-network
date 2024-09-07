@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "5aeb4795-0f14-4ddd-9fff-bec6bd8adcd4",
+		"name": "trade-network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25079678"
+	},
+	"item": [
+		{
+			"name": "Create a Trade Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"transactionId\": \"txn_001\",\n  \"details\": {\n    \"from\": \"Earth\",\n    \"to\": \"Mars\",\n    \"cargo\": \"Spices\",\n    \"value\": 10000\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/trades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"trades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a Trade Transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/trades/txn_001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"trades",
+						"txn_001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Cargo Shipment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"shipmentId\": \"cargo_001\",\n  \"details\": {\n    \"weight\": \"500kg\",\n    \"contents\": \"Fuel\",\n    \"destination\": \"Jupiter\"\n  },\n  \"status\": \"In Transit\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cargo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cargo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Cargo Shipment Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cargo/cargo_001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cargo",
+						"cargo_001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Inventory Levels",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"stationId\": \"station_01\",\n  \"items\": [\n    { \"itemId\": \"item_01\", \"quantity\": 100 },\n    { \"itemId\": \"item_02\", \"quantity\": 50 }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/inventory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Inventory Levels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/inventory/earth_station",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"inventory",
+						"earth_station"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
